@@ -1,0 +1,14 @@
+{
+	"name": "wordpress-consentcookie",
+	"version": "1.0.0",
+	"description": "Integrates ConsentCookie in a WordPress website.",
+	"repository": {
+		"type": "git"
+	},
+	"author": "Ramon Rockx",
+	"license": "Apache 2.0",
+	"devDependencies": {
+		"gulp": "3.9.1",
+		"gulp-zip": "4.1.0"
+	}
+}

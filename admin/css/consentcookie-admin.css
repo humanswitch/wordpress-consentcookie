@@ -1,0 +1,13 @@
+textarea.jstextarea {
+	font-family: monospace;
+}
+
+#consentcookie-configurator, .cm-s-default {
+	border: 1px solid #b4b9be;
+}
+
+#consentcookie-configurator .container {
+	margin-left: inherit;
+	margin-right: inherit;
+	padding-left: 30px;
+}
