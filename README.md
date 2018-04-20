@@ -7,7 +7,7 @@ Stable tag: 1.0
 License: Apache License Version 2.0
 License URI: http://www.apache.org/licenses/
 
-[ConsentCookie][https://www.consentcookie.nl] is an open source solution for collecting GDPR compliant data on your website.
+[ConsentCookie](https://www.consentcookie.nl) is an open source solution for collecting GDPR compliant data on your website.
 
 # Description
 
