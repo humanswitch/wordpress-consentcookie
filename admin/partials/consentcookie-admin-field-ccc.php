@@ -16,7 +16,7 @@ if ( ! empty( $atts['label'] ) ) {
 
 <div>
 	<div id="<?php echo esc_attr( $atts['id'] ); ?>-holder"><span><?php echo esc_html__( "loading configuration...", "consentcookie"); ?></span></div>
-	<textarea  id="<?php echo esc_attr( $atts['id'] ); ?>" name="<?php echo esc_attr( $atts['name'] ); ?>">
+	<textarea hidden="hidden" id="<?php echo esc_attr( $atts['id'] ); ?>" name="<?php echo esc_attr( $atts['name'] ); ?>">
 	<?php echo $atts['value']; ?>
 	</textarea>
 </div>
