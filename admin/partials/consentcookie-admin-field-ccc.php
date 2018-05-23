@@ -15,7 +15,9 @@ if ( ! empty( $atts['label'] ) ) {
 } ?>
 
 <div>
-	<div id="<?php echo esc_attr( $atts['id'] ); ?>-holder"><span><?php echo esc_html__( "loading configuration...", "consentcookie"); ?></span></div>
+	<div id="<?php echo esc_attr( $atts['id'] ); ?>-wrapper">
+		<div id="<?php echo esc_attr( $atts['id'] ); ?>-holder"><span><?php echo esc_html__( "loading configuration...", "consentcookie"); ?></span></div>
+	</div>
 	<textarea hidden="hidden" id="<?php echo esc_attr( $atts['id'] ); ?>" name="<?php echo esc_attr( $atts['name'] ); ?>">
 	<?php echo $atts['value']; ?>
 	</textarea>
@@ -24,6 +26,7 @@ if ( ! empty( $atts['label'] ) ) {
 <script>
 	jQuery( window ).on( "load", function() {
 		var ccc = new CCC( "#<?php echo esc_js( $atts['id'] ); ?>-holder" ).setOptions( { "copyButton" : false } );
+		jQuery("#<?php echo esc_js( $atts['id'] ); ?>-wrapper").data("ccc", ccc);
 		ccc.onMounted(function(configurator) {
 			configurator.onChange( function( configurator, config ) {
 				jQuery( "#<?php echo esc_js( $atts['id'] ); ?>" ).val( jQuery('<div />').text(JSON.stringify(config)).html() );

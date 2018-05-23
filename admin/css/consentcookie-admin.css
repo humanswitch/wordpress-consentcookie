@@ -11,3 +11,7 @@ textarea.jstextarea {
 	margin-right: inherit;
 	padding-left: 30px;
 }
+
+#ccBtnReset {
+	margin-left: 10px;
+}
