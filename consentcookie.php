@@ -35,8 +35,8 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  */
 define( 'CONSENTCOOKIE_VERSION', '1.0.0' );
-define( 'CONSENTCOOKIE_CONFIGURATOR_PATH', 'https://www.consentcookie.nl/configurator/static/' );
-define( 'CONSENTCOOKIE_JS', 'https://www.consentcookie.nl/consentcookie/latest/consentcookie.min.js');
+define( 'CONSENTCOOKIE_CONFIGURATOR_PATH', 'https://cdn.humanswitch.services/cc/configurator/' );
+define( 'CONSENTCOOKIE_JS', 'https://cdn.humanswitch.services/cc/consentcookie/consentcookie.min.js');
 
 
 /**

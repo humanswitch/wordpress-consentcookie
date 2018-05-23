@@ -73,7 +73,7 @@ class ConsentCookie_Admin {
     public function enqueue_styles( $hook_suffix ) {
 
         if ( $this->isPluginSettingsPage() ) {
-            wp_enqueue_style( $this->plugin_name . "-app", CONSENTCOOKIE_CONFIGURATOR_PATH . 'css/app.css', array(), null, 'all' );
+            wp_enqueue_style( $this->plugin_name . "-app", CONSENTCOOKIE_CONFIGURATOR_PATH . 'configurator-app.css', array(), null, 'all' );
             wp_enqueue_style( $this->plugin_name . "-codemirror", plugins_url( 'codemirror/codemirror.css', __FILE__), array( $this->plugin_name . "-app" ) );
             wp_enqueue_style( $this->plugin_name . "-codemirror_dialog", plugins_url( 'codemirror/addon/dialog/dialog.css', __FILE__), array( $this->plugin_name . "-codemirror" ) );
             wp_enqueue_style( $this->plugin_name . "-codemirror_matchesonscrollbar", plugins_url( 'codemirror/addon/search/matchesonscrollbar.css', __FILE__), array( $this->plugin_name . "-codemirror_dialog" ) );
@@ -90,9 +90,9 @@ class ConsentCookie_Admin {
     public function enqueue_scripts( $hook_suffix ) {
         
         if ( $this->isPluginSettingsPage() ) {
-            wp_enqueue_script( $this->plugin_name . "-manifest", CONSENTCOOKIE_CONFIGURATOR_PATH . 'js/manifest.js', array(), null);
-            wp_enqueue_script( $this->plugin_name . "-vendor", CONSENTCOOKIE_CONFIGURATOR_PATH . 'js/vendor.js', array( $this->plugin_name . "-manifest" ), null);
-            wp_enqueue_script( $this->plugin_name . "-app", CONSENTCOOKIE_CONFIGURATOR_PATH . 'js/app.js', array( $this->plugin_name . "-vendor" ), null );
+            wp_enqueue_script( $this->plugin_name . "-manifest", CONSENTCOOKIE_CONFIGURATOR_PATH . 'configurator-manifest.js', array(), null);
+            wp_enqueue_script( $this->plugin_name . "-vendor", CONSENTCOOKIE_CONFIGURATOR_PATH . 'configurator-vendor.js', array( $this->plugin_name . "-manifest" ), null);
+            wp_enqueue_script( $this->plugin_name . "-app", CONSENTCOOKIE_CONFIGURATOR_PATH . 'configurator-app.js', array( $this->plugin_name . "-vendor" ), null );
             
             // CodeMirror
             wp_enqueue_script( $this->plugin_name . "-codemirror", plugins_url( 'codemirror/codemirror.js', __FILE__) );
