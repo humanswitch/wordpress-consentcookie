@@ -258,6 +258,7 @@ class ConsentCookie_Admin {
         $options[] = array( 'consentcookie-enabled', 'checkbox', 0);
         $options[] = array( 'consentcookie-widget-ccc', 'textarea', '' );
         $options[] = array( 'consentcookie-widget-customscript', 'textarea', '' );
+        $options[] = array( 'consentcookie-version', 'text', '' );
         
         return $options;
         
@@ -303,9 +304,19 @@ class ConsentCookie_Admin {
             
             $valid[$option[0]] = $this->sanitizer( $type, $input[$name] );
         }
-        
+        $valid['consentcookie-version'] = $this->version;
+
         return $valid;
         
     } // validate_options()
+
+    public function register_update_notice( ) {
+        if ( !isset ($this->options) || !isset( $this->options["consentcookie-version"] ) || $this->version != $this->options["consentcookie-version"] ) {
+            $class = 'notice notice-warning';
+            $message = __( 'Please verify and re-save your ConsentCookie configuration.', 'consentcookie' );
+
+            printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
+        } 
+    }
     
 }

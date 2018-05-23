@@ -26,6 +26,7 @@ var consentCookieAdmin = {
 				mode : "javascript",
 				matchBrackets : true
 			});
+			jQuery("#consentcookie-widget-customscript").data("codeMirror", codeMirror);
 			
 			/*
 			 * Show warning when user tries to leave when modifications are not saved.
@@ -57,6 +58,13 @@ var consentCookieAdmin = {
 			})
 			
 		});
+	},
+
+	reset: function() {
+		var codeMirror = jQuery("#consentcookie-widget-customscript").data("codeMirror");
+		codeMirror.setValue("");
+		codeMirror.clearHistory();
+		jQuery("#consentcookie-widget-ccc-wrapper").data("ccc").resetConfig();
 	}
 	
 };

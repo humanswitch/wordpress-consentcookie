@@ -20,6 +20,9 @@ submit_button( esc_html__( 'Save' ), "primary", $this->plugin_name . "-submit-to
 
 do_settings_sections( $this->plugin_name );
 
-submit_button( esc_html__( 'Save' ), "primary", $this->plugin_name . "-submit-bottom", true, array( 'disabled' => 'disabled' ) );
-
-?></form>
+?>
+<p class="submit">
+<?php submit_button( esc_html__( 'Save' ), "primary", $this->plugin_name . "-submit-bottom", false, array( 'disabled' => 'disabled' ) ); ?>
+<input id="ccBtnReset" value="<?php echo esc_html__( 'Reset', 'consentcookie' ) ?>" title="<?php echo esc_html__( 'Reset to initial settings', 'consentcookie' ) ?>" class="button" type="button" onclick = "consentCookieAdmin.reset()">
+</p>
+</form>

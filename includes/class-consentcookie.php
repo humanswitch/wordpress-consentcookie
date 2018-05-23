@@ -178,6 +178,7 @@ class ConsentCookie {
 	        $this->loader->add_action( 'admin_init', $plugin_admin, 'register_settings' );
 	        $this->loader->add_action( 'admin_init', $plugin_admin, 'register_sections' );
 	        $this->loader->add_action( 'admin_init', $plugin_admin, 'register_fields' );
+	        $this->loader->add_action( 'admin_notices', $plugin_admin, 'register_update_notice' );
 	    }
 		
 	}
