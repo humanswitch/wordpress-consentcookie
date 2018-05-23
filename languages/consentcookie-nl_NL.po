@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ConsentCookie\n"
-"POT-Creation-Date: 2018-05-23 14:12+0100\n"
-"PO-Revision-Date: 2018-05-23 14:12+0100\n"
+"POT-Creation-Date: 2018-05-23 16:51+0100\n"
+"PO-Revision-Date: 2018-05-23 16:51+0100\n"
 "Last-Translator: Ramon Rockx <ramon@humanswitch.io>\n"
 "Language-Team: HumanSwitch <support@humanswitch.io>\n"
 "Language: Dutch\n"
@@ -15,34 +15,38 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin/class-consentcookie-admin.php:109
+#: admin/class-consentcookie-admin.php:108
 msgid "Your modifications will get lost if you leave this page."
 msgstr "Je wijzigingen zullen verloren gaan als je deze pagina verlaat."
 
-#: admin/class-consentcookie-admin.php:144
+#: admin/class-consentcookie-admin.php:142
 msgid "ConsentCookie settings"
 msgstr "ConsentCookie instellingen"
 
-#: admin/class-consentcookie-admin.php:145
-#: admin/class-consentcookie-admin.php:233
+#: admin/class-consentcookie-admin.php:143
+#: admin/class-consentcookie-admin.php:231
 msgid "ConsentCookie"
 msgstr ""
 
-#: admin/class-consentcookie-admin.php:173
+#: admin/class-consentcookie-admin.php:171
 msgid "Enabled"
 msgstr "Actief"
 
-#: admin/class-consentcookie-admin.php:185
+#: admin/class-consentcookie-admin.php:183
 msgid "Configuration"
 msgstr "Configuratie"
 
-#: admin/class-consentcookie-admin.php:196
+#: admin/class-consentcookie-admin.php:194
 msgid "Script"
 msgstr ""
 
-#: admin/class-consentcookie-admin.php:202
+#: admin/class-consentcookie-admin.php:200
 msgid "Custom script"
 msgstr "Maatwerk script"
+
+#: admin/class-consentcookie-admin.php:314
+msgid "Please verify and re-save your ConsentCookie configuration."
+msgstr "Controleer en bewaar opnieuw de ConsentCookie configuratie."
 
 #: admin/partials/consentcookie-admin-field-ccc.php:19
 msgid "loading configuration..."
