@@ -30,12 +30,14 @@ var consentCookieAdmin = {
 			/*
 			 * Show warning when user tries to leave when modifications are not saved.
 			 */
-			$(window).on("beforeunload", function(ev) {
+
+			// Disabled because of https://github.com/humanswitch/wordpress-consentcookie/issues/3
+			/*$(window).on("beforeunload", function(ev) {
 				if (consentCookieAdmin.isModified) {
 					ev.returnValue = consentcookieObjectL10n.unsavedWarning;
 					return ev.returnValue;
 				}
-			});
+			});*/
 			
 			/*
 			 * Mark modifications and enable 'Save' button
