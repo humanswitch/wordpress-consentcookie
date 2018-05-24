@@ -238,4 +238,8 @@ class ConsentCookie {
 		return $this->version;
 	}
 
+	public static function deleteOption() {
+		delete_option( "consentcookie-options" );
+	}
+
 }

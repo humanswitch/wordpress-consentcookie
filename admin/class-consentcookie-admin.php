@@ -113,6 +113,7 @@ class ConsentCookie_Admin {
             
             wp_enqueue_script( $this->plugin_name . "-js", plugins_url( 'js/consentcookie-admin.js', __FILE__) );
             wp_localize_script( $this->plugin_name . "-js", $this->plugin_name . 'ObjectL10n', array( "unsavedWarning" => esc_html__( 'Your modifications will get lost if you leave this page.', 'consentcookie' )) );
+            wp_localize_script( $this->plugin_name . "-js", $this->plugin_name . 'ObjectL10n', array( "unsavedReset" => esc_html__( 'Settings have been reset but not saved yet.', 'consentcookie' )) );
         }
         
     } // enqueue_scripts()
