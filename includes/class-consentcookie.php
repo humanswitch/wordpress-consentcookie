@@ -78,11 +78,7 @@ class ConsentCookie {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'PLUGIN_NAME_VERSION' ) ) {
-			$this->version = PLUGIN_NAME_VERSION;
-		} else {
-			$this->version = '1.0.0';
-		}
+		$this->version = PLUGIN_VERSION;
 		$this->plugin_name = 'consentcookie';
 		$this->options = get_option( $this->plugin_name . '-options' );
 		
@@ -184,7 +180,7 @@ class ConsentCookie {
 	}
 	
 	private function is_enabled() {
-	    return $this->options["consentcookie-enabled"];
+	    return $this->options[OPT_CC_ENABLED];
 	}	
 
 	/**
@@ -240,6 +236,10 @@ class ConsentCookie {
 	 */
 	public function get_version() {
 		return $this->version;
+	}
+
+	public static function deleteOption() {
+		delete_option( "consentcookie-options" );
 	}
 
 }

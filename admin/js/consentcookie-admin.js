@@ -64,7 +64,11 @@ var consentCookieAdmin = {
 		var codeMirror = jQuery("#consentcookie-widget-customscript").data("codeMirror");
 		codeMirror.setValue("");
 		codeMirror.clearHistory();
+		jQuery("#consentcookie-enabled").prop('checked', false);
 		jQuery("#consentcookie-widget-ccc-wrapper").data("ccc").resetConfig();
+		jQuery("#cc-cdn").prop('checked', false);
+		jQuery("#ccc-cdn").prop('checked', false);
+		alert(consentcookieObjectL10n.unsavedReset);
 	}
 	
 };

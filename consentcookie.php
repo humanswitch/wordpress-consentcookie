@@ -16,7 +16,7 @@
  * Plugin Name:       ConsentCookie
  * Plugin URI:        https://github.com/humanswitch/wordpress-consentcookie
  * Description:       ConsentCookie is an open source solution for collecting GDPR compliant data on your website.
- * Version:           1.0.0
+ * Version:           1.1.0
  * Author:            HumanSwitch
  * Author URI:        https://www.humanswitch.io
  * License:           Apache License Version 2.0
@@ -34,10 +34,25 @@ if ( ! defined( 'WPINC' ) ) {
  * Currently plugin version.
  * Start at version 1.0.0 and use SemVer - https://semver.org
  */
-define( 'CONSENTCOOKIE_VERSION', '1.0.0' );
-define( 'CONSENTCOOKIE_CONFIGURATOR_PATH', 'https://cdn.humanswitch.services/cc/configurator/' );
-define( 'CONSENTCOOKIE_JS', 'https://cdn.humanswitch.services/cc/consentcookie/consentcookie.min.js');
+define( 'PLUGIN_VERSION', '1.1.0' );
 
+// ConsentCookie
+define( 'CC_VERSION', '0.7.1');
+define( 'CC_PATH', 'cc/' . CC_VERSION . '/' );
+define( 'CC_CDN_PATH', 'https://cdn.humanswitch.services/cc/consentcookie/');
+
+// ConsentCookie Configurator
+define( 'CCC_CDN_PATH', 'https://cdn.humanswitch.services/cc/configurator/' );
+define( 'CCC_VERSION', '1.2.2' );
+define( 'CCC_PATH', 'ccc/' . CCC_VERSION . "/" );
+
+// Options
+define( 'OPT_VERSION', 'version' );
+define( 'OPT_CCC_CDN', 'ccc-cdn' );
+define( 'OPT_CC_ENABLED', 'consentcookie-enabled' );
+define( 'OPT_CC_CDN', 'cc-cdn' );
+define( 'OPT_CC_WIDGET_CC', 'consentcookie-widget-ccc' );
+define( 'OPT_CC_WIDGET_CUSTOMSCRIPT', 'consentcookie-widget-customscript' );
 
 /**
  * The core plugin class that is used to define internationalization,
