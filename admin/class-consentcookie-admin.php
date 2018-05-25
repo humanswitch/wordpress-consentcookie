@@ -64,6 +64,11 @@ class ConsentCookie_Admin {
         $screen = get_current_screen();
         return "settings_page_" . $this->plugin_name . '-settings' === $screen->id;
     }
+
+    private function getCCCUrlPrefix() {
+        $useCdn = ( isset ($this->options) && isset( $this->options[OPT_CCC_CDN] ) && $this->options[OPT_CCC_CDN] );
+        return $useCdn ? CCC_CDN_PATH : plugins_url( CCC_PATH, __FILE__);
+    }
     
     /**
      * Register the stylesheets for the Dashboard.
@@ -73,7 +78,7 @@ class ConsentCookie_Admin {
     public function enqueue_styles( $hook_suffix ) {
 
         if ( $this->isPluginSettingsPage() ) {
-            wp_enqueue_style( $this->plugin_name . "-app", CONSENTCOOKIE_CONFIGURATOR_PATH . 'css/app.css', array(), null, 'all' );
+            wp_enqueue_style( $this->plugin_name . "-app", $this->getCCCUrlPrefix() . 'configurator-app.css', array(), null, 'all' );
             wp_enqueue_style( $this->plugin_name . "-codemirror", plugins_url( 'codemirror/codemirror.css', __FILE__), array( $this->plugin_name . "-app" ) );
             wp_enqueue_style( $this->plugin_name . "-codemirror_dialog", plugins_url( 'codemirror/addon/dialog/dialog.css', __FILE__), array( $this->plugin_name . "-codemirror" ) );
             wp_enqueue_style( $this->plugin_name . "-codemirror_matchesonscrollbar", plugins_url( 'codemirror/addon/search/matchesonscrollbar.css', __FILE__), array( $this->plugin_name . "-codemirror_dialog" ) );
@@ -90,9 +95,10 @@ class ConsentCookie_Admin {
     public function enqueue_scripts( $hook_suffix ) {
         
         if ( $this->isPluginSettingsPage() ) {
-            wp_enqueue_script( $this->plugin_name . "-manifest", CONSENTCOOKIE_CONFIGURATOR_PATH . 'js/manifest.js', array(), null);
-            wp_enqueue_script( $this->plugin_name . "-vendor", CONSENTCOOKIE_CONFIGURATOR_PATH . 'js/vendor.js', array( $this->plugin_name . "-manifest" ), null);
-            wp_enqueue_script( $this->plugin_name . "-app", CONSENTCOOKIE_CONFIGURATOR_PATH . 'js/app.js', array( $this->plugin_name . "-vendor" ), null );
+            $urlPrefix = $this->getCCCUrlPrefix();
+            wp_enqueue_script( $this->plugin_name . "-manifest", $urlPrefix . 'configurator-manifest.js', array(), null);
+            wp_enqueue_script( $this->plugin_name . "-vendor", $urlPrefix . 'configurator-vendor.js', array( $this->plugin_name . "-manifest" ), null);
+            wp_enqueue_script( $this->plugin_name . "-app", $urlPrefix . 'configurator-app.js', array( $this->plugin_name . "-vendor" ), null );
             
             // CodeMirror
             wp_enqueue_script( $this->plugin_name . "-codemirror", plugins_url( 'codemirror/codemirror.js', __FILE__) );
@@ -107,6 +113,7 @@ class ConsentCookie_Admin {
             
             wp_enqueue_script( $this->plugin_name . "-js", plugins_url( 'js/consentcookie-admin.js', __FILE__) );
             wp_localize_script( $this->plugin_name . "-js", $this->plugin_name . 'ObjectL10n', array( "unsavedWarning" => esc_html__( 'Your modifications will get lost if you leave this page.', 'consentcookie' )) );
+            wp_localize_script( $this->plugin_name . "-js", $this->plugin_name . 'ObjectL10n', array( "unsavedReset" => esc_html__( 'Settings have been reset but not saved yet.', 'consentcookie' )) );
         }
         
     } // enqueue_scripts()
@@ -169,30 +176,30 @@ class ConsentCookie_Admin {
         // add_settings_field( $id, $title, $callback, $menu_slug, $section, $args );
         
         add_settings_field(
-            'consentcookie-enabled',
+            OPT_CC_ENABLED,
             apply_filters( $this->plugin_name . 'label-enabled', esc_html__( 'Enabled', 'consentcookie' ) ),
             array( $this->adminField, 'field_checkbox' ),
             $this->plugin_name,
             $this->plugin_name . '-general',
             array(
-                'id' 			=> 'consentcookie-enabled',
+                'id' 			=> OPT_CC_ENABLED,
                 'value' 		=> 1,
             )
             );
              
         add_settings_field(
-            'consentcookie-widget-ccc',
+            OPT_CC_WIDGET_CC,
             apply_filters( $this->plugin_name . 'label-widget-ccc', esc_html__( 'Configuration', 'consentcookie' ) ),
             array( $this->adminField, 'field_ccc' ),
             $this->plugin_name,
             $this->plugin_name . '-general',
             array(
-                'id' 			=> 'consentcookie-widget-ccc'
+                'id' 			=> OPT_CC_WIDGET_CC
             )
             );
         
         add_settings_field(
-            'consentcookie-widget-customscript',
+            OPT_CC_WIDGET_CUSTOMSCRIPT,
             apply_filters( $this->plugin_name . 'label-widget-customscript', esc_html__( 'Script', 'consentcookie' ) ),
             array( $this->adminField, 'field_textarea' ),
             $this->plugin_name,
@@ -200,16 +207,40 @@ class ConsentCookie_Admin {
             array(
                 'class'         => "large-text jstextarea",
                 'description' 	=> esc_html__ ( 'Custom script' ),
-                'id' 			=> 'consentcookie-widget-customscript',
+                'id' 			=> OPT_CC_WIDGET_CUSTOMSCRIPT,
                 'help_url'      => 'https://www.consentcookie.nl/documentation/start-direct/wordpress-plugin/'
             )
             );
-        
+
+        add_settings_field(
+            OPT_CC_CDN,
+            apply_filters( $this->plugin_name . 'label-enabled', esc_html__( 'ConsentCookie CDN', 'consentcookie' ) ),
+            array( $this->adminField, 'field_checkbox' ),
+            $this->plugin_name,
+            $this->plugin_name . '-advanced',
+            array(
+                'id' 			=> OPT_CC_CDN,
+                'value' 		=> 0,
+            )
+            );
+
+        add_settings_field(
+            OPT_CCC_CDN,
+            apply_filters( $this->plugin_name . 'label-enabled', esc_html__( 'ConsentCookie Configurator CDN', 'consentcookie' ) ),
+            array( $this->adminField, 'field_checkbox' ),
+            $this->plugin_name,
+            $this->plugin_name . '-advanced',
+            array(
+                'id' 			=> OPT_CCC_CDN,
+                'value' 		=> 0,
+            )
+            );
+
         
     } // register_fields()
     
     /**
-     * Creates a settings section
+     * Creates a 'general' section
      *
      * @since 		1.0.0
      * @param 		array 		$params 		Array of parameters for the section
@@ -220,6 +251,20 @@ class ConsentCookie_Admin {
         include( plugin_dir_path( __FILE__ ) . 'partials/consentcookie-admin-section-general.php' );
         
     } // section_general()
+
+    /**
+     * Creates a 'advanced' section
+     *
+     * @since 		1.1.0
+     * @param 		array 		$params 		Array of parameters for the section
+     * @return 		mixed 						The settings section
+     */
+    public function section_advanced( $params ) {
+        
+        include( plugin_dir_path( __FILE__ ) . 'partials/consentcookie-admin-section-advanced.php' );
+        
+    } // section_advanced()
+
     
     /**
      * Registers settings sections with WordPress
@@ -234,6 +279,14 @@ class ConsentCookie_Admin {
             array( $this, 'section_general' ),
             $this->plugin_name
             );
+
+        add_settings_section(
+            $this->plugin_name . '-advanced',
+            apply_filters( $this->plugin_name . 'section-title-advanced', esc_html__( 'Advanced settings', 'consentcookie' ) ),
+            array( $this, 'section_advanced' ),
+            $this->plugin_name
+            );
+
         
     } // register_sections()
     
@@ -255,9 +308,12 @@ class ConsentCookie_Admin {
         
         $options = array();
         
-        $options[] = array( 'consentcookie-enabled', 'checkbox', 0);
-        $options[] = array( 'consentcookie-widget-ccc', 'textarea', '' );
-        $options[] = array( 'consentcookie-widget-customscript', 'textarea', '' );
+        $options[] = array( OPT_CC_ENABLED, 'checkbox', 0);
+        $options[] = array( OPT_CC_WIDGET_CC, 'textarea', '' );
+        $options[] = array( OPT_CC_WIDGET_CUSTOMSCRIPT, 'textarea', '' );
+        $options[] = array( OPT_VERSION, 'text', '' );
+        $options[] = array( OPT_CCC_CDN, 'checkbox', 0);
+        $options[] = array( OPT_CC_CDN, 'checkbox', 0);
         
         return $options;
         
@@ -303,9 +359,19 @@ class ConsentCookie_Admin {
             
             $valid[$option[0]] = $this->sanitizer( $type, $input[$name] );
         }
-        
+        $valid[OPT_VERSION] = $this->version;
+
         return $valid;
         
     } // validate_options()
+
+    public function register_update_notice( ) {
+        if ( !isset ($this->options) || !isset( $this->options[OPT_VERSION] ) || $this->version != $this->options[OPT_VERSION] ) {
+            $class = 'notice notice-warning';
+            $message = __( 'Please verify and re-save your ConsentCookie configuration.', 'consentcookie' );
+
+            printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
+        } 
+    }
     
 }

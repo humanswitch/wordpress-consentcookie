@@ -30,7 +30,8 @@ class ConsentCookie_Uninstaller {
 	 * @since    1.0.0
 	 */
 	public static function uninstall() {
-	    delete_option( "consentcookie-options" );
+		// Disabled because of https://github.com/humanswitch/wordpress-consentcookie/issues/5
+	    // delete_option( "consentcookie-options" );
 	}
 
 }

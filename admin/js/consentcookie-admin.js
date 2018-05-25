@@ -26,16 +26,19 @@ var consentCookieAdmin = {
 				mode : "javascript",
 				matchBrackets : true
 			});
+			jQuery("#consentcookie-widget-customscript").data("codeMirror", codeMirror);
 			
 			/*
 			 * Show warning when user tries to leave when modifications are not saved.
 			 */
-			$(window).on("beforeunload", function(ev) {
+
+			// Disabled because of https://github.com/humanswitch/wordpress-consentcookie/issues/3
+			/*$(window).on("beforeunload", function(ev) {
 				if (consentCookieAdmin.isModified) {
 					ev.returnValue = consentcookieObjectL10n.unsavedWarning;
 					return ev.returnValue;
 				}
-			});
+			});*/
 			
 			/*
 			 * Mark modifications and enable 'Save' button
@@ -55,6 +58,17 @@ var consentCookieAdmin = {
 			})
 			
 		});
+	},
+
+	reset: function() {
+		var codeMirror = jQuery("#consentcookie-widget-customscript").data("codeMirror");
+		codeMirror.setValue("");
+		codeMirror.clearHistory();
+		jQuery("#consentcookie-enabled").prop('checked', false);
+		jQuery("#consentcookie-widget-ccc-wrapper").data("ccc").resetConfig();
+		jQuery("#cc-cdn").prop('checked', false);
+		jQuery("#ccc-cdn").prop('checked', false);
+		alert(consentcookieObjectL10n.unsavedReset);
 	}
 	
 };

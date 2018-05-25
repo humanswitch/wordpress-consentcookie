@@ -88,7 +88,7 @@ class ConsentCookie_Sanitize {
                 break;
             
             case 'checkbox':
-                $sanitized = (isset($this->data) ? 1 : 0);
+                $sanitized = (isset($this->data) ? $this->data : 0);
                 break;
             case 'editor':
                 $sanitized = wp_kses_post($this->data);

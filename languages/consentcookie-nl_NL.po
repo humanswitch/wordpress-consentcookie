@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ConsentCookie\n"
-"POT-Creation-Date: 2018-04-12 10:21+0100\n"
-"PO-Revision-Date: 2018-04-12 10:22+0100\n"
+"POT-Creation-Date: 2018-05-24 14:28+0100\n"
+"PO-Revision-Date: 2018-05-24 14:28+0100\n"
 "Last-Translator: Ramon Rockx <ramon@humanswitch.io>\n"
 "Language-Team: HumanSwitch <support@humanswitch.io>\n"
 "Language: Dutch\n"
@@ -15,42 +15,72 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin/class-consentcookie-admin.php:109
+#: admin/class-consentcookie-admin.php:115
 msgid "Your modifications will get lost if you leave this page."
 msgstr "Je wijzigingen zullen verloren gaan als je deze pagina verlaat."
 
-#: admin/class-consentcookie-admin.php:144
+#: admin/class-consentcookie-admin.php:116
+msgid "Settings have been reset but not saved yet."
+msgstr ""
+"Instellingen zijn hersteld naar beginwaarden, maar zijn nog niet bewaard."
+
+#: admin/class-consentcookie-admin.php:151
 msgid "ConsentCookie settings"
 msgstr "ConsentCookie instellingen"
 
-#: admin/class-consentcookie-admin.php:145
-#: admin/class-consentcookie-admin.php:233
+#: admin/class-consentcookie-admin.php:152
+#: admin/class-consentcookie-admin.php:278
 msgid "ConsentCookie"
 msgstr ""
 
-#: admin/class-consentcookie-admin.php:173
+#: admin/class-consentcookie-admin.php:180
 msgid "Enabled"
 msgstr "Actief"
 
-#: admin/class-consentcookie-admin.php:185
+#: admin/class-consentcookie-admin.php:192
 msgid "Configuration"
 msgstr "Configuratie"
 
-#: admin/class-consentcookie-admin.php:196
+#: admin/class-consentcookie-admin.php:203
 msgid "Script"
 msgstr ""
 
-#: admin/class-consentcookie-admin.php:202
+#: admin/class-consentcookie-admin.php:209
 msgid "Custom script"
 msgstr "Maatwerk script"
 
-#: admin/partials/consentcookie-admin-field-ccc.php:18
+#: admin/class-consentcookie-admin.php:217
+msgid "ConsentCookie CDN"
+msgstr ""
+
+#: admin/class-consentcookie-admin.php:229
+msgid "ConsentCookie Configurator CDN"
+msgstr ""
+
+#: admin/class-consentcookie-admin.php:285
+msgid "Advanced settings"
+msgstr "Geavanceerde instellingen"
+
+#: admin/class-consentcookie-admin.php:371
+msgid "Please verify and re-save your ConsentCookie configuration."
+msgstr "Controleer en bewaar opnieuw de ConsentCookie configuratie."
+
+#: admin/partials/consentcookie-admin-field-ccc.php:19
 msgid "loading configuration..."
 msgstr "configuratie inladen..."
 
+#: admin/partials/consentcookie-admin-page-settings.php:19
 #: admin/partials/consentcookie-admin-page-settings.php:25
 msgid "Save"
 msgstr "Opslaan"
+
+#: admin/partials/consentcookie-admin-page-settings.php:26
+msgid "Reset"
+msgstr "Herstellen"
+
+#: admin/partials/consentcookie-admin-page-settings.php:26
+msgid "Reset to initial settings"
+msgstr "Herstel naar beginwaarden"
 
 #: includes/class-consentcookie-sanitize.php:185
 msgid "Specify the data type to sanitize."

@@ -3,7 +3,7 @@ Contributors: supporthumanswitch
 Tags: privacy, avg, gdpr, website, widget, consent, cookie
 Requires at least: 4.9.5
 Tested up to: 4.9.5
-Stable tag: 1.0
+Stable tag: 1.1
 License: Apache License Version 2.0
 License URI: http://www.apache.org/licenses/
 
@@ -43,6 +43,14 @@ ConsentCookie, previously iCookie - 2016, is an initiative by [HumanSwitch](http
 4. add some [optional script](https://www.consentcookie.nl/documentation/plugins/ "Plugins reference")
 
 # Changelog
+
+## 1.1
+* feature: reset to default configuration (#7)
+* feature: switch between embedded hosted ConsentCookie (Configurator) scripts or hosted by cdn (#10)
+* feature: plugin version is stored for future upgrades (#8)
+* change: configuration not deleted on uninstall anymore (#5)
+* change: disabled "unsaved warning" because it is too eager (#3)
+* change: ConsentCookie (Configuration) external script locations changed (#1)
 
 ## 1.0 
 * initial version
