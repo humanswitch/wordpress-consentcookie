@@ -34,7 +34,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Currently plugin version.
  * Start at version 1.0.0 and use SemVer - https://semver.org
  */
-define( 'PLUGIN_VERSION', '1.2.0' );
+define( 'PLUGIN_VERSION', '1.1.0' );
 
 // ConsentCookie
 define( 'CC_VERSION', '1.0.0');
@@ -43,7 +43,7 @@ define( 'CC_CDN_PATH', 'https://cdn.humanswitch.services/cc/consentcookie/app/1/
 
 // ConsentCookie Configurator
 define( 'CCC_CDN_PATH', 'https://cdn.humanswitch.services/cc/configurator/app/2/' );
-define( 'CCC_VERSION', '2.0.0' );
+define( 'CCC_VERSION', '2.0.1' );
 define( 'CCC_PATH', 'ccc/' . CCC_VERSION . "/" );
 
 // Options
