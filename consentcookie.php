@@ -37,13 +37,13 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'PLUGIN_VERSION', '1.1.0' );
 
 // ConsentCookie
-define( 'CC_VERSION', '0.7.1');
+define( 'CC_VERSION', '1.0.0');
 define( 'CC_PATH', 'cc/' . CC_VERSION . '/' );
-define( 'CC_CDN_PATH', 'https://cdn.humanswitch.services/cc/consentcookie/');
+define( 'CC_CDN_PATH', 'https://cdn.humanswitch.services/cc/consentcookie/app/1/');
 
 // ConsentCookie Configurator
-define( 'CCC_CDN_PATH', 'https://cdn.humanswitch.services/cc/configurator/' );
-define( 'CCC_VERSION', '1.2.2' );
+define( 'CCC_CDN_PATH', 'https://cdn.humanswitch.services/cc/configurator/app/2/' );
+define( 'CCC_VERSION', '2.0.1' );
 define( 'CCC_PATH', 'ccc/' . CCC_VERSION . "/" );
 
 // Options
