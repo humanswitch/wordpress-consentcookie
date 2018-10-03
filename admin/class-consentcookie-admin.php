@@ -66,8 +66,8 @@ class ConsentCookie_Admin {
     }
 
     private function getCCCUrlPrefix() {
-        $useCdn = ( isset ($this->options) && isset( $this->options[OPT_CCC_CDN] ) && $this->options[OPT_CCC_CDN] );
-        $useCustomPath = ( isset ($this->options) && isset( $this->options[OPT_CCC_CUSTOM_PATH] ) && $this->options[OPT_CCC_CUSTOM_PATH] != '' );
+        $useCdn = ( isset ($this->options) && isset( $this->options[OPT_CCC_CDN] ) && $this->options[OPT_CCC_CDN] === '1' );
+        $useCustomPath = ( isset ($this->options) && isset( $this->options[OPT_CCC_CUSTOM_PATH] ) && $this->options[OPT_CCC_CUSTOM_PATH] != null );
         if ($useCdn) {
             $urlPrefix = CCC_CDN_PATH;
         } elseif ($useCustomPath) {
@@ -77,6 +77,7 @@ class ConsentCookie_Admin {
         }
         return $urlPrefix;
     }
+
 
     /**
      * Register the stylesheets for the Dashboard.
@@ -393,8 +394,10 @@ class ConsentCookie_Admin {
 
             $name = $option[0];
             $type = $option[1];
-            isset($input[$name]) ? $valid[$option[0]] = $this->sanitizer($type, $input[$name]) : $valid[$option[0]] = $this->sanitizer($type, $option[0]);
+            isset($input[$name]) ? $valid[$option[0]] = $this->sanitizer($type, $input[$name]) : $valid[$option[0]] = $this->sanitizer($type, '');
+
         }
+
         $valid[OPT_VERSION] = $this->version;
 
         return $valid;
