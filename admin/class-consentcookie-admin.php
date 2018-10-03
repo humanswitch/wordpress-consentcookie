@@ -243,8 +243,7 @@ class ConsentCookie_Admin {
                 'id' 			=> OPT_CC_CUSTOM_PATH,
                 'description' 	=> esc_html__ ( 'Uncheck ConsentCookie CDN if you use a custom path.' ),
             )
-        );
-
+            );
 
         add_settings_field(
             OPT_CCC_CDN,
@@ -270,7 +269,7 @@ class ConsentCookie_Admin {
                 'id' 			=> OPT_CCC_CUSTOM_PATH,
                 'description' 	=> esc_html__ ( 'Uncheck Configurator CDN if you use a custom path.' ),
             )
-        );
+            );
 
 
     } // register_fields()
@@ -394,8 +393,7 @@ class ConsentCookie_Admin {
 
             $name = $option[0];
             $type = $option[1];
-
-            $valid[$option[0]] = $this->sanitizer( $type, $input[$name] );
+            isset($input[$name]) ? $valid[$option[0]] = $this->sanitizer($type, $input[$name]) : $valid[$option[0]] = $this->sanitizer($type, $option[0]);
         }
         $valid[OPT_VERSION] = $this->version;
 
