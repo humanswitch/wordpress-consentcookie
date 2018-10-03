@@ -53,6 +53,8 @@ define( 'OPT_CC_ENABLED', 'consentcookie-enabled' );
 define( 'OPT_CC_CDN', 'cc-cdn' );
 define( 'OPT_CC_WIDGET_CC', 'consentcookie-widget-ccc' );
 define( 'OPT_CC_WIDGET_CUSTOMSCRIPT', 'consentcookie-widget-customscript' );
+define( 'OPT_CC_CUSTOM_PATH', 'cc-custom-path' );
+define( 'OPT_CCC_CUSTOM_PATH', 'ccc-custom-path' );
 
 /**
  * The core plugin class that is used to define internationalization,

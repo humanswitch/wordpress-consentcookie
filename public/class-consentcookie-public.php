@@ -39,7 +39,7 @@ class ConsentCookie_Public {
 	 * @var      string    $version    The current version of this plugin.
 	 */
 	private $version;
-	
+
 	private $options;
 
 	/**
@@ -56,16 +56,16 @@ class ConsentCookie_Public {
 		$this->options = $options;
 
 	}
-	
+
 	private function getInlineScript() {
 		$inlineStr =  "window.ConsentCookie.init(" . html_entity_decode( $this->options[OPT_CC_WIDGET_CC] ) . ");\r\n";
 		if ( ! empty( $this->options[OPT_CC_WIDGET_CUSTOMSCRIPT] ) ) {
 		    $inlineStr .= html_entity_decode( stripslashes( $this->options[OPT_CC_WIDGET_CUSTOMSCRIPT] ) ) .";";
-        } 
-        
-        return $inlineStr; 
+        }
+
+        return $inlineStr;
 	}
-	
+
 	/**
 	 * Register the JavaScript for the public-facing side of the site.
 	 *
@@ -86,11 +86,11 @@ class ConsentCookie_Public {
 		 */
 
 		$useCdn = ( isset ($this->options) && isset( $this->options[OPT_CC_CDN] ) && $this->options[OPT_CC_CDN] );
-        $urlPrefix = $useCdn ? CC_CDN_PATH : plugins_url( CC_PATH, __FILE__);
-
+		$useCustomPath = ( isset ($this->options) && isset( $this->options[OPT_CC_CUSTOM_PATH] ) && $this->options[OPT_CC_CUSTOM_PATH] != '' );
+		$urlPrefix = $useCdn ? CC_CDN_PATH : $useCustomPath ? $this->options[OPT_CC_CUSTOM_PATH] : plugins_url( CC_PATH, __FILE__);
 	    wp_enqueue_script( $this->plugin_name, $urlPrefix . 'consentcookie.min.js', array( 'jquery' ), null, false );
 	    wp_add_inline_script( $this->plugin_name, $this->getInlineScript() );
-	
+
 	}
-	
+
 }
