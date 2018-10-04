@@ -16,7 +16,7 @@
  * Plugin Name:       ConsentCookie
  * Plugin URI:        https://github.com/humanswitch/wordpress-consentcookie
  * Description:       ConsentCookie is an open source solution for collecting GDPR compliant data on your website.
- * Version:           1.2.0
+ * Version:           1.2.1
  * Author:            HumanSwitch
  * Author URI:        https://www.humanswitch.io
  * License:           Apache License Version 2.0
@@ -34,7 +34,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Currently plugin version.
  * Start at version 1.0.0 and use SemVer - https://semver.org
  */
-define( 'PLUGIN_VERSION', '1.2.0' );
+define( 'PLUGIN_VERSION', '1.2.1' );
 
 // ConsentCookie
 define( 'CC_VERSION', '1.0.0');
@@ -53,6 +53,8 @@ define( 'OPT_CC_ENABLED', 'consentcookie-enabled' );
 define( 'OPT_CC_CDN', 'cc-cdn' );
 define( 'OPT_CC_WIDGET_CC', 'consentcookie-widget-ccc' );
 define( 'OPT_CC_WIDGET_CUSTOMSCRIPT', 'consentcookie-widget-customscript' );
+define( 'OPT_CC_CUSTOM_PATH', 'cc-custom-path' );
+define( 'OPT_CCC_CUSTOM_PATH', 'ccc-custom-path' );
 
 /**
  * The core plugin class that is used to define internationalization,
