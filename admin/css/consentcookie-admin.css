@@ -15,3 +15,11 @@ textarea.jstextarea {
 #ccBtnReset {
 	margin-left: 10px;
 }
+
+.settings_field {
+	margin-bottom: 30px;
+}
+
+.settings_field_title {
+	margin-bottom: unset;
+}

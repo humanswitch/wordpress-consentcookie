@@ -56,7 +56,7 @@ class ConsentCookie {
 	 * @var      string    $version    The current version of the plugin.
 	 */
 	protected $version;
-	
+
 	/**
 	 * Sanitizer for cleaning user input
 	 *
@@ -65,7 +65,7 @@ class ConsentCookie {
 	 * @var      ConsentCookie_Sanitize    $sanitizer    Sanitizes data
 	 */
 	private $sanitizer;
-	
+
 	private $options;
 
 	/**
@@ -81,12 +81,12 @@ class ConsentCookie {
 		$this->version = PLUGIN_VERSION;
 		$this->plugin_name = 'consentcookie';
 		$this->options = get_option( $this->plugin_name . '-options' );
-		
+
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
-		
+
 	}
 
 	/**
@@ -129,15 +129,15 @@ class ConsentCookie {
 		 * side of the site.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-consentcookie-public.php';
-		
+
 		/**
 		 * The class responsible for sanitizing user input
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-consentcookie-sanitize.php';
-		
+
 		$this->loader = new ConsentCookie_Loader();
 		$this->sanitizer = new ConsentCookie_Sanitize();
-		
+
 	}
 
 	/**
@@ -165,9 +165,9 @@ class ConsentCookie {
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
-	    if ( is_admin() ) {	    
+	    if ( is_admin() ) {
 	        $plugin_admin = new ConsentCookie_Admin( $this->get_consentcookie(), $this->get_version() );
-	        
+
 	        $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 	        $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 	        $this->loader->add_action( 'admin_menu', $plugin_admin, 'add_menu' );
@@ -176,12 +176,12 @@ class ConsentCookie {
 	        $this->loader->add_action( 'admin_init', $plugin_admin, 'register_fields' );
 	        $this->loader->add_action( 'admin_notices', $plugin_admin, 'register_update_notice' );
 	    }
-		
+
 	}
-	
+
 	private function is_enabled() {
 	    return $this->options[OPT_CC_ENABLED];
-	}	
+	}
 
 	/**
 	 * Register all of the hooks related to the public-facing functionality
