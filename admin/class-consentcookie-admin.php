@@ -193,6 +193,7 @@ class ConsentCookie_Admin {
             array(
                 'id' 			=> OPT_CC_ENABLED,
                 'value' 		=> 1,
+                'description'   => 'If enabled ConsentCookie is visible on your website.'
             )
             );
 
@@ -209,10 +210,10 @@ class ConsentCookie_Admin {
 
         add_settings_field(
             OPT_CC_WIDGET_CUSTOMSCRIPT,
-            apply_filters( $this->plugin_name . 'label-widget-customscript', esc_html__( 'Script', 'consentcookie' ) ),
+            apply_filters( $this->plugin_name . 'label-widget-customscript', esc_html__( 'Custom script', 'consentcookie' ) ),
             array( $this->adminField, 'field_textarea' ),
             $this->plugin_name,
-            $this->plugin_name . '-general',
+            $this->plugin_name . '-advanced',
             array(
                 'class'         => "large-text jstextarea",
                 'description' 	=> esc_html__ ( 'Custom script' ),
@@ -311,7 +312,7 @@ class ConsentCookie_Admin {
 
         add_settings_section(
             $this->plugin_name . '-general',
-            apply_filters( $this->plugin_name . 'section-title-general', esc_html__( 'ConsentCookie', 'consentcookie' ) ),
+            apply_filters( $this->plugin_name . 'section-title-general', esc_html__( 'General settings', 'consentcookie' ) ),
             array( $this, 'section_general' ),
             $this->plugin_name
             );
