@@ -25,7 +25,7 @@ if ( ! empty( $atts['label'] ) ) {
 <span class="description"><?php esc_html_e( $atts['description'], 'consentcookie' ); ?></span>
 <script>
 	jQuery( window ).on( "load", function() {
-		var ccc = new CCC( "#<?php echo esc_js( $atts['id'] ); ?>-holder" ).setOptions( { "copyButton" : false } );
+		var ccc = new CCC( "#<?php echo esc_js( $atts['id'] ); ?>-holder" ).setOptions( { "copyButton" : false, "advancedButton" : true } );
 		jQuery("#<?php echo esc_js( $atts['id'] ); ?>-wrapper").data("ccc", ccc);
 		ccc.onMounted(function(configurator) {
 			configurator.onChange( function( configurator, config ) {
