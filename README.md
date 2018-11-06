@@ -43,6 +43,15 @@ ConsentCookie, previously iCookie - 2016, is an initiative by [HumanSwitch](http
 4. add some [optional script](https://www.consentcookie.nl/documentation/plugins/ "Plugins reference")
 
 # Changelog
+## 1.3.0
+* change: new embedded version of configurator v2.1.0
+* feature: added sidebar with links to documentation and information about HumanSwitch
+* feature: custom path for CC and CCC
+
+## 1.2.1
+* fix: final version ConsentCookie 1.0.0 embedded
+
+#17 New embedded version of ConsentCookie 1.0.0
 ## 1.2
 * change: new embedded version of configurator v2.0.1
 * change: new embedded version of consentcookie v1.0.0
